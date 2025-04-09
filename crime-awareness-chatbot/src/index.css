@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', sans-serif;
+  background-color: #f3f4f6;
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 shadow-sm hover:shadow-md transform hover:-translate-y-0.5;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-white transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+  }
+
+  .chat-container {
+    @apply max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200;
+  }
+
+  .chat-header {
+    @apply bg-primary text-white p-4 border-b border-primary/20;
+  }
+
+  .chat-messages {
+    @apply p-6 space-y-6 min-h-[500px] max-h-[600px] overflow-y-auto bg-gray-50;
+  }
+
+  .message {
+    @apply flex items-start gap-3 animate-message-in;
+  }
+
+  .message-bubble {
+    @apply rounded-2xl p-4 shadow-sm max-w-[600px] transition-all duration-300;
+  }
+
+  .user-message {
+    @apply bg-primary text-white transform hover:scale-[1.01];
+  }
+
+  .bot-message {
+    @apply bg-white border border-gray-200 transform hover:scale-[1.01];
+  }
+
+  .options-container {
+    @apply mt-4 space-y-2 w-full;
+  }
+
+  .option-button {
+    @apply w-full text-left px-4 py-3 rounded-xl bg-white border border-gray-200 
+           hover:bg-primary hover:text-white hover:border-transparent 
+           transition-all duration-300 shadow-sm hover:shadow-md
+           transform hover:-translate-y-0.5;
+  }
+
+  .option-button:hover .option-icon {
+    @apply bg-white/10 scale-110;
+  }
+
+  .option-icon {
+    @apply w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center 
+           transition-all duration-300;
+  }
+}
+
+@keyframes message-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-message-in {
+  animation: message-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Form styles */
+.form-group {
+  @apply mb-4 transition-all duration-300;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-1 transition-colors duration-200;
+}
+
+.form-select {
+  @apply input-field appearance-none bg-white cursor-pointer hover:border-primary/50;
+}
+
+.form-textarea {
+  @apply input-field min-h-[100px] resize-y hover:border-primary/50;
+}
+
+/* Police station card styles */
+.station-card {
+  @apply border rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+.station-image {
+  @apply w-full h-48 object-cover transition-transform duration-300 hover:scale-105;
+}
+
+.station-info {
+  @apply p-4 transition-colors duration-200;
+}
+
+.station-name {
+  @apply font-semibold text-lg mb-2 transition-colors duration-200 hover:text-primary;
+}
+
+.station-contact {
+  @apply text-primary hover:text-primary/80 flex items-center transition-colors duration-200;
+}
+
+/* Header styles */
+.main-header {
+  @apply bg-primary shadow-lg text-white transition-all duration-300;
+}
+
+.header-content {
+  @apply container mx-auto px-4 py-6 flex items-center justify-center;
+}
+
+.header-title {
+  @apply text-2xl font-bold flex items-center transition-transform duration-200 hover:scale-[1.02];
+}
+
+.header-icon {
+  @apply h-8 w-8 mr-3 transition-transform duration-200 hover:scale-110;
+}
+
+/* Success animation */
+@keyframes success-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.success-animation {
+  animation: success-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
