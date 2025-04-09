@@ -1,0 +1,21 @@
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBkyVeeTFeWKV6ngurH82PNThd8XIzA9M8",
+  authDomain: "cbot2-7129e.firebaseapp.com",
+  projectId: "cbot2-7129e",
+  storageBucket: "cbot2-7129e.firebasestorage.app",
+  messagingSenderId: "597762698015",
+  appId: "1:597762698015:web:83180b6bb46e6f97db5e2a",
+  measurementId: "G-ZD3PCL01CF"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+export const chatsCollection = collection(db, 'chats');
+export { db, auth, chatsCollection };
